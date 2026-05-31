@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Pet-Name-Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a web application built using React and Vite. The application provides name ideas for your pet with filter options.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Setup Instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js v22.16.0 (used during development)
+- npm
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Clone the repository:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/joshrinea/pet-name-finder.git
+cd pet-name-finder
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Run on local machine:
+
+```bash
+npm run dev
+```
+
+4. Open the application in your browser:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Architecture Explanation
+
+The application follows a component-based architecture using React.
+
+### Structure
+
+```text
+src/
+├── assets/        # Static resources
+├── components/    # Reusable UI components
+├── data/          # static data
+├── hooks/         # custom hooks for filter options
+├── interface/     # interfaces
+├── services/      # Functions for loading data from JSON files in the public folder
+├── App.jsx        # Main application component
+├── main.jsx       # Application entry point
+└── styles         # css files
+```
+
+### Application Flow
+
+1. `main.jsx` initializes the React application.
+2. `App.jsx` serves as the root component.
+3. Components render the user interface.
+4. Data is loaded from JSON files stored in the public folder.
+5. React hooks manage state, filtering logic, and UI updates.
+
+This structure promotes separation of concerns, maintainability, and scalability.
+
+---
+
+## Assumptions Made
+
+- Node.js and npm are installed on the target machine.
+- The JSON data files in the public folder are present and accessible.
+- Users access the application using a modern web browser.
+- No external API dependencies are required.
+- No additional configuration is required beyond dependency installation.
+
+---
+
+## Repository
+
+Git Repository: [https://github.com/joshrinea/pet-name-finder.git]
