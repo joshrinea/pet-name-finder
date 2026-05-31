@@ -1,0 +1,20 @@
+@font-face {
+    font-family: RobotoSlab;
+    src: url("../assets/fonts/Roboto_Slab/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf")
+}
+
+@import "tailwindcss";
+
+@theme {
+    --color-background: #F9F8F5;
+    --color-brand: #E81C24;
+    --color-text-neutral-dark: #3A3533;
+    --color-text-neutral-mid: #6B6868;
+    --color-text-gray-200: #6B6868;
+    --font-RobotoSlab: RobotoSlab, "sans-serif";
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: var(--font-RobotoSlab);
+}
